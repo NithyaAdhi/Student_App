@@ -1,0 +1,64 @@
+/* src/components/Sidebar.css */
+.sidebar {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 20px;
+    width: 250px; /* Adjust width as needed */
+    height: 100vh; /* Full viewport height */
+    position: fixed; /* Fixed sidebar */
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Allow vertical scrolling if content is long */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 10; /* Ensure sidebar is above other content if needed */
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Circular profile image */
+    object-fit: cover; /* Ensure image fills the circle */
+    margin-bottom: 10px;
+}
+
+.username {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column; /* Stack navigation links vertically */
+}
+
+.nav-link {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333; /* Dark text color */
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex; /* Use flex to align icon and text */
+    align-items: center; /* Vertically align icon and text */
+}
+
+.nav-link i {
+    margin-right: 10px; /* Spacing between icon and text */
+    font-size: 1.2em; /* Adjust icon size */
+}
+
+.nav-link:hover {
+    background-color: #e9ecef; /* Lighter gray on hover */
+}
+
+.nav-link.active-link {
+    background-color: #007bff; /* Bootstrap primary color for active link */
+    color: white;
+}
+
+.nav-link.active-link:hover {
+    background-color: #007bff; /* Keep active color on hover */
+}

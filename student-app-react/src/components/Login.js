@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NotificationModal from './NotificationModal'; // Assuming you have this
+import axios from 'axios'; // Import axios
+import NotificationModal from './NotificationModal';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -10,9 +11,29 @@ function Login() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // Placeholder - API call to login will go here
-        console.log('Login submitted:', { username, password });
-        showNotificationModal('Login functionality not yet implemented.', false); // Placeholder message
+
+        try {
+            const response = await axios.post('https://localhost:7137/api/auth/login', { // Correct API endpoint URL
+                username: username,
+                password: password
+            });
+
+            // Successful login - store token and redirect
+            const token = response.data.token; 
+            localStorage.setItem('authToken', token); 
+            showNotificationModal(response.data.message || 'Login successful!', true); // Use message from API if available
+            setTimeout(() => {
+                navigate('/students'); 
+            }, 1500);
+
+        } catch (error) {
+            console.error('Login failed:', error);
+            let errorMessage = 'Login failed. Please check your credentials.';
+            if (error.response && error.response.data && error.response.data.message) {
+                errorMessage = error.response.data.message; 
+            }
+            showNotificationModal(errorMessage, false);
+        }
     };
 
     const showNotificationModal = (message, isSuccess) => {
