@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dotnet\\StudentApi\\StudentApi\\StudentApi.csproj": {}
+    "D:\\github\\Student_App\\StudentApi\\StudentApi\\StudentApi.csproj": {}
   },
   "projects": {
-    "D:\\dotnet\\StudentApi\\StudentApi\\StudentApi.csproj": {
+    "D:\\github\\Student_App\\StudentApi\\StudentApi\\StudentApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dotnet\\StudentApi\\StudentApi\\StudentApi.csproj",
+        "projectUniqueName": "D:\\github\\Student_App\\StudentApi\\StudentApi\\StudentApi.csproj",
         "projectName": "StudentApi",
-        "projectPath": "D:\\dotnet\\StudentApi\\StudentApi\\StudentApi.csproj",
+        "projectPath": "D:\\github\\Student_App\\StudentApi\\StudentApi\\StudentApi.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\dotnet\\StudentApi\\StudentApi\\obj\\",
+        "outputPath": "D:\\github\\Student_App\\StudentApi\\StudentApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.14, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.14, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.3, )"
