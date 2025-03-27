@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Import axios
+import { useNavigate, Link } from 'react-router-dom'; // Import Link
+import axios from 'axios';
 import NotificationModal from './NotificationModal';
 
-function Login() {
+function Login({ onLogin }) { // Receive onLogin prop
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -19,18 +19,19 @@ function Login() {
             });
 
             // Successful login - store token and redirect
-            const token = response.data.token; 
-            localStorage.setItem('authToken', token); 
+            const token = response.data.token;
+            localStorage.setItem('authToken', token);
             showNotificationModal(response.data.message || 'Login successful!', true); // Use message from API if available
+            onLogin(); // Call the onLogin callback after successful login to update isLoggedIn in App.js
             setTimeout(() => {
-                navigate('/students'); 
+                navigate('/students');
             }, 1500);
 
         } catch (error) {
             console.error('Login failed:', error);
             let errorMessage = 'Login failed. Please check your credentials.';
             if (error.response && error.response.data && error.response.data.message) {
-                errorMessage = error.response.data.message; 
+                errorMessage = error.response.data.message;
             }
             showNotificationModal(errorMessage, false);
         }
@@ -57,7 +58,7 @@ function Login() {
                     <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
-                <button type="button" onClick={() => navigate('/register')} className="btn btn-secondary ms-2">Register</button>
+                <Link to="/register" className="btn btn-secondary ms-2">Sign Up</Link> {/* Use Link for "Sign Up" */}
             </form>
 
             <NotificationModal

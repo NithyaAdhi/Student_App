@@ -32,7 +32,7 @@ namespace StudentApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new AppUser { UserName = model.Username, Email = model.Email }; // You can set Email if needed in RegisterDto
+            var user = new AppUser { UserName = model.Username, Email = model.Email }; 
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
@@ -72,11 +72,11 @@ namespace StudentApi.Controllers
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.UserName), // Subject (username)
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), // JWT ID
-                new Claim(JwtRegisteredClaimNames.Email, user.Email), // Email (if you want to include it)
-                new Claim(ClaimTypes.NameIdentifier, user.Id) // User ID
-                // Add other claims if needed (roles, etc.)
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), 
+                new Claim(JwtRegisteredClaimNames.Email, user.Email), 
+                new Claim(ClaimTypes.NameIdentifier, user.Id) 
+                
             };
 
             // Sign the token with the secret key

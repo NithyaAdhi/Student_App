@@ -2,63 +2,73 @@
 .sidebar {
     background-color: #f8f9fa; /* Light gray background */
     padding: 20px;
-    width: 250px; /* Adjust width as needed */
-    height: 100vh; /* Full viewport height */
-    position: fixed; /* Fixed sidebar */
+    width: 220px; /* Slightly reduced width */
+    height: 100vh;
+    position: fixed;
     top: 0;
     left: 0;
-    overflow-y: auto; /* Allow vertical scrolling if content is long */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    z-index: 10; /* Ensure sidebar is above other content if needed */
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    font-family: 'Arial', sans-serif; /* Cleaner font */
 }
 
-.profile-section {
+.sidebar-header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Increased margin below header */
 }
 
-.profile-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%; /* Circular profile image */
-    object-fit: cover; /* Ensure image fills the circle */
+.sidebar-logo {
+    width: 60px; /* Adjusted logo size */
+    height: auto; /* Maintain aspect ratio */
     margin-bottom: 10px;
 }
 
-.username {
+.profile-text {
+    font-size: 1.2em; /* Slightly larger "Profile" text */
+    color: #555; /* Darker gray text */
     font-weight: bold;
-    margin-bottom: 0;
 }
 
 .sidebar-nav {
     display: flex;
-    flex-direction: column; /* Stack navigation links vertically */
+    flex-direction: column;
 }
 
 .nav-link {
-    padding: 10px 15px;
+    padding: 8px 15px; /* Reduced vertical padding */
     text-decoration: none;
-    color: #333; /* Dark text color */
-    margin-bottom: 5px;
-    border-radius: 5px;
-    display: flex; /* Use flex to align icon and text */
-    align-items: center; /* Vertically align icon and text */
+    color: #555; /* Darker gray link color */
+    margin-bottom: 8px; /* Adjusted margin between links */
+    border-radius: 0; /* Removed border-radius for cleaner look */
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease; /* Smooth hover transition */
 }
 
 .nav-link i {
-    margin-right: 10px; /* Spacing between icon and text */
-    font-size: 1.2em; /* Adjust icon size */
+    margin-right: 12px; /* Adjusted icon spacing */
+    font-size: 1em; /* Slightly smaller icon size */
+    color: #777; /* Lighter gray icon color */
 }
 
 .nav-link:hover {
-    background-color: #e9ecef; /* Lighter gray on hover */
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+    color: #333; /* Darker text on hover */
+    i {
+        color: #555; /* Darker icon on hover */
+    }
 }
 
-.nav-link.active-link {
-    background-color: #007bff; /* Bootstrap primary color for active link */
-    color: white;
+.nav-link.active {
+    background-color: #e0e0e0; /* Light gray active background */
+    color: #007bff; /* Bootstrap primary color for active text */
+    font-weight: bold; /* Bold active link text */
+    i {
+        color: #007bff; /* Bootstrap primary color for active icon */
+    }
 }
 
-.nav-link.active-link:hover {
-    background-color: #007bff; /* Keep active color on hover */
+.nav-link.active:hover {
+    background-color: #d0d0d0; /* Slightly darker active hover background */
 }

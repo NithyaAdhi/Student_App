@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+/* src/App.css or src/index.css */
+
+body {
+  margin: 0 !important; /* Force reset body margin */
+  font-family: 'Arial', sans-serif !important; /* Force font */
+  background-color: #f0f2f5 !important; /* Force background color */
+  overflow-x: hidden !important; /* Prevent horizontal scrollbar if content overflows */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-layout {
+  display: flex !important; /* Force flexbox layout */
+  min-height: 100vh !important; /* Force full viewport height */
+  width: 100% !important; /* Ensure app-layout takes full width */
+  overflow: hidden !important; /* Prevent scrollbars on layout container */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sidebar {
+  background-color: #ffffff !important; /* Force white sidebar background */
+  padding: 20px !important; /* Force padding */
+  width: 240px !important; /* Force sidebar width */
+  height: 100vh !important; /* Force full viewport height */
+  position: fixed !important; /* Force fixed positioning */
+  top: 0 !important; /* Force top position */
+  left: 0 !important; /* Force left position */
+  overflow-y: auto !important; /* Allow vertical scrolling in sidebar */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08) !important; /* Force shadow */
+  z-index: 10 !important; /* Force z-index */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.main-content {
+  flex: 1 !important; /* Force main content to take remaining width */
+  margin-left: 240px !important; /* Force margin-left to match sidebar width */
+  padding: 20px !important; /* Force padding */
+  padding-top: 30px !important; /* Force top padding */
+  background-color: #f0f2f5 !important; /* Force background color */
+  display: flex !important; /* Make main-content a flex container too, for Navbar positioning */
+  flex-direction: column !important; /* Stack Navbar and content vertically */
 }
 
-.App-link {
-  color: #61dafb;
+.content-area {
+  background-color: #ffffff !important; /* Force white content area background */
+  padding: 25px !important; /* Force padding */
+  border-radius: 8px !important; /* Force rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important; /* Force shadow */
+  width: 100% !important; /* Ensure content-area takes full width within main-content */
+  box-sizing: border-box !important; /* Include padding and border in width calculation */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Optional: Style for main content container if needed */
+.main-content-container {
+  width: 100% !important; /* Ensure container takes full width within content-area */
+  box-sizing: border-box !important; /* Include padding and border in width calculation */
 }
