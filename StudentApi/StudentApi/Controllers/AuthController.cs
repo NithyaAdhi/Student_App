@@ -62,11 +62,13 @@ namespace StudentApi.Controllers
             if (result.Succeeded)
             {
                 var token = await GenerateJwtToken(user);
-                return Ok(new { Token = token, Message = "Login successful" });
+                return Ok(new { Token = token, user.Email, Message = "Login successful" });
             }
 
             return BadRequest(new { Message = "Invalid login attempt." });
         }
+
+        
 
         private async Task<string> GenerateJwtToken(AppUser user)
         {

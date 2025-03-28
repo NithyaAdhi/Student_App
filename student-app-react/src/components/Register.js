@@ -11,35 +11,36 @@ function Register() {
     const navigate = useNavigate();
     const [notificationModal, setNotificationModal] = useState({ isOpen: false, message: '', isSuccess: false });
 
+    
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+    
         if (password !== confirmPassword) {
             showNotificationModal('Passwords do not match.', false);
             return;
         }
-
+    
         try {
-            const response = await axios.post('https://localhost:7137/api/auth/register', { // Correct API endpoint URL
+            const response = await axios.post('https://localhost:7137/api/auth/register', {
                 username: username,
-                email: email, // Include email
+                email: email,
                 password: password,
-                confirmPassword: confirmPassword // Include confirmPassword
+                confirmPassword: confirmPassword
             });
-
-            // Successful registration
-            showNotificationModal(response.data.message || 'Registration successful!', true); // Use message from API if available
+    
+            showNotificationModal('Registration successful! Please login.', true);
             setTimeout(() => {
-                navigate('/login'); // Redirect to login page after registration
+                navigate('/login');
             }, 1500);
-
+    
         } catch (error) {
             console.error('Registration failed:', error);
             let errorMessage = 'Registration failed. Please check the form.';
             if (error.response && error.response.data && error.response.data.errors) {
-                // Handle model validation errors from API (if your API returns them in 'errors' field)
-                const errorList = Object.values(error.response.data.errors).flat(); // Flatten errors if API returns a dictionary
-                errorMessage = errorList.join('\n'); // Join errors into a single string for display
+              
+                const errorList = Object.values(error.response.data.errors).flat(); 
+                errorMessage = errorList.join('\n'); 
             } else if (error.response && error.response.data && error.response.data.message) {
                 errorMessage = error.response.data.message; // Fallback to a general API message if available
             }

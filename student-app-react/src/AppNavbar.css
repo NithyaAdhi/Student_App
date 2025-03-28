@@ -1,0 +1,42 @@
+/* src/AppNavbar.css */
+
+.app-navbar {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.profile-nav {
+    align-items: center; /* Vertically align profile items */
+}
+
+.profile-nav .navbar-text { /* Style username text */
+    color: rgba(255, 255, 255, 0.8); /* Light text color */
+    margin-right: 0.5rem;
+}
+
+.profile-icon {
+    width: 30px; /* Adjust icon size */
+    height: 30px;
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover; /* Ensure image fills circle */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+}
+
+/* Optional CSS for profile-link (if needed) */
+.profile-nav .profile-link {
+    padding: 0; /* Remove default padding */
+    margin: 0;
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+.profile-nav .profile-link:hover {
+    background: none;
+    text-decoration: none;
+}
+.profile-icon:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+    border-color: white;
+}

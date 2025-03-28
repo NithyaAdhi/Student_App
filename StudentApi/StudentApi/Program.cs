@@ -58,7 +58,7 @@ namespace StudentApi
             {
                 options.AddPolicy("AllowReactApp", policy =>
                 {
-                    policy.WithOrigins("http://localhost:3000") 
+                    policy.WithOrigins("http://localhost:3004") 
                            .AllowAnyMethod() 
                            .AllowAnyHeader(); 
                 });
